@@ -107,7 +107,15 @@ class AdminView(generics.CreateAPIView):
         # return Response(user,200)
         
     # Eliminar administrador con delete (Borrar realmente)
-    # TODO: Agregar eliminación de administradores
+    @transaction.atomic
+    def delete(self, request, *args, **kwargs):
+        admin = get_object_or_404(Administradores, id=request.GET.get("id"))
+        try:
+            # Eliminamos el usuario asociado (esto también eliminará el admin por CASCADE)
+            admin.user.delete()
+            return Response({"message": "Administrador eliminado correctamente"}, 200)
+        except Exception as e:
+            return Response({"message": "Error al eliminar el administrador", "error": str(e)}, 400)
 
 class TotalUsers(generics.CreateAPIView):
     #Contar el total de cada tipo de usuarios
