@@ -9,7 +9,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = True  # en desarrollo
 
 # ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
-ALLOWED_HOSTS = [os.environ.get("WEB_HOST_NAME")]
+ALLOWED_HOSTS = [os.environ.get("WEB_HOST_NAME"), "proyecto-final-desarrollo-movil-back.onrender.com"]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
