@@ -9,9 +9,19 @@ from app_movil_escolar_api.views import alumnos
 from app_movil_escolar_api.views import maestros
 from app_movil_escolar_api.views import auth
 from app_movil_escolar_api.views import eventos
+from django.core.management import call_command
+from django.http import HttpResponse
 
 # from sistema_escolar_api.views import alumnos
 # from sistema_escolar_api.views import maestros
+
+def run_migrations(request):
+    try:
+        call_command("migrate")
+        return HttpResponse("Migraciones ejecutadas correctamente.")
+    except Exception as e:
+        return HttpResponse(f"Error ejecutando migraciones: {e}")
+
 
 urlpatterns = [
     # Create Admin
