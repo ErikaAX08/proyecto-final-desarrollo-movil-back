@@ -33,3 +33,5 @@ rsa==4.9.1
 six==1.17.0
 sqlparse==0.5.4
 urllib3==2.5.0
+dj-database-url 
+psycopg2-binary
