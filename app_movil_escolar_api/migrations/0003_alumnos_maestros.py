@@ -38,7 +38,7 @@ class Migration(migrations.Migration):
                 ('telefono', models.CharField(blank=True, max_length=255, null=True)),
                 ('rfc', models.CharField(blank=True, max_length=255, null=True)),
                 ('cubiculo', models.CharField(blank=True, max_length=255, null=True)),
-                ('edad', models.IntegerField(blank=True, null=True)),
+                # ('edad', models.IntegerField(blank=True, null=True)),
                 ('area_investigacion', models.CharField(blank=True, max_length=255, null=True)),
                 ('materias_json', models.TextField(blank=True, null=True)),
                 ('creation', models.DateTimeField(auto_now_add=True, null=True)),
