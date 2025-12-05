@@ -15,6 +15,7 @@ from django.http import HttpResponse
 # from sistema_escolar_api.views import alumnos
 # from sistema_escolar_api.views import maestros
 
+
 def run_migrations(request):
     try:
         call_command("migrate")
@@ -26,6 +27,7 @@ def run_migrations(request):
 urlpatterns = [
     # Create Admin
     path("admin/", users.AdminView.as_view()),
+    path("run-migrations/", run_migrations),
     # Admin Data
     path("lista-admins/", users.AdminAll.as_view()),
     # Edit Admin
