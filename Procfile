@@ -1,0 +1,1 @@
+web: gunicorn app_movil_escolar_api.wsgi:application
