@@ -8,6 +8,7 @@ from app_movil_escolar_api.views import users
 from app_movil_escolar_api.views import alumnos
 from app_movil_escolar_api.views import maestros
 from app_movil_escolar_api.views import auth
+from app_movil_escolar_api.views import eventos
 
 # from sistema_escolar_api.views import alumnos
 # from sistema_escolar_api.views import maestros
@@ -33,6 +34,22 @@ urlpatterns = [
     path("login/", auth.CustomAuthToken.as_view()),
     # Logout
     path("logout/", auth.Logout.as_view()),
+    # CRUD de eventos académicos
+    # POST: Registrar evento (solo admin)
+    # GET: Obtener evento por ID (?id=X)
+    # PUT: Actualizar evento (solo admin)
+    # DELETE: Eliminar evento (?id=X) (solo admin)
+    path(
+        "eventos-academicos/",
+        eventos.EventoAcademicoView.as_view(),
+        name="eventos_academicos",
+    ),
+    # GET: Listar todos los eventos
+    path("lista-eventos/", eventos.ListaEventosView.as_view(), name="lista_eventos"),
+    # GET: Listar eventos filtrados por rol del usuario
+    path(
+        "eventos-por-rol/", eventos.EventosPorRolView.as_view(), name="eventos_por_rol"
+    ),
 ]
 
 if settings.DEBUG:
